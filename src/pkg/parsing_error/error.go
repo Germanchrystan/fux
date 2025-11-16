@@ -1,4 +1,4 @@
-package domain
+package pkg
 
 type Error struct {
 	Voice     int
@@ -26,3 +26,12 @@ const (
 	RepeatedNotesGravity    float32 = GravityLow // TODO: Revise this
 	TritoneInPassageGravity float32 = GravityHigh
 )
+
+func NewError(voice int, note int, gravity float32, errCode int) Error {
+	return Error{
+		Voice:     voice,
+		Note:      note,
+		Gravity:   gravity,
+		ErrorCode: errCode,
+	}
+}

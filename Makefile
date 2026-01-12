@@ -1,8 +1,8 @@
 CC = gcc
-ARCH = x86_64
+CFLAGS = -Wall -Wextra -fPIC -I.
 LIB_EXTENSION = dylib
-CFLAGS = -Wall -Wextra -fPIC -I. #  -arch $(ARCH)
-LIBNAME = libcparser.$(LIB_EXTENSION)
+LIB_NAME = libcparser
+LIBRARY = $(LIB_NAME).$(LIB_EXTENSION)
 
 SRCS = extern.c \
        Analyzer/Analyzer.c \
@@ -11,7 +11,7 @@ SRCS = extern.c \
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(LIBNAME)
+all: $(LIBRARYLIBRARY)
 
 $(LIBNAME): $(OBJS)
 	$(CC) -shared -o $@ $^
@@ -20,4 +20,8 @@ $(LIBNAME): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS) $(LIBNAME)
+	rm -f $(OBJS) $(LIBRARY)
+
+
+$(BUILD_DIR)/%.o: $(SOURCE_DIR)/%.c
+	$(COMPILER_CALL) -c $< -o $@

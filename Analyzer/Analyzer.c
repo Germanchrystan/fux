@@ -3,8 +3,8 @@
 #include <string.h>
 
 #include "Analyzer.h"
-#include "../Remark/Remark.h"
-#include "../Notation/Notation.h"
+#include "../remark/Remark.h"
+#include "../notation/Notation.h"
 
 static RemarkArray MergeRemarkArrays(RemarkArray* arrays, size_t numArrays)
 {

@@ -14,7 +14,7 @@ Remark * newRemark(int voice, int note, float gravity, int errorCode)
     r->voice = voice;
     r->note = note;
     r->gravity = gravity;
-    r->errorCode = errorCode;
+    r->code = errorCode;
     return r;
 }
 

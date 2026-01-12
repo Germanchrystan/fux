@@ -12,7 +12,7 @@ RemarkArray DummyModule(const MusicPiece* piece)
     result.data[0].voice = 0;
     result.data[0].note = 0;
     result.data[0].gravity = 0.5f;
-    result.data[0].errorCode = 99;  // dummy error code
+    result.data[0].code = 99;  // dummy error code
     
     return result;
 }

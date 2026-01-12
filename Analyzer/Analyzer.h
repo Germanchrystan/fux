@@ -2,8 +2,8 @@
 
 #include <stdlib.h>
 
-#include "../Notation/Notation.h"
-#include "../Remark/Remark.h"
+#include "../notation/Notation.h"
+#include "../remark/Remark.h"
 #include "../export.h"
 
 typedef RemarkArray(*AnalyzerModule)(const MusicPiece* piece);

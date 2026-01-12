@@ -48,7 +48,7 @@ static RemarkArray checkJumpCompensation(const Voice* voice)
           remark.voice = voice->id;
           remark.note = i + 1; // index of the note causing the issue
           remark.gravity = JumpCompensationGravity;
-          remark.errorCode = JumpCompensation;
+          remark.code = JumpCompensation;
 
           addRemark(&remarks, remark);
         }
@@ -71,7 +71,7 @@ static RemarkArray checkOutOfRegister(const Voice* voice)
         remark.voice = voice->id;
         remark.note = i; // index of the note causing the issue
         remark.gravity = OutOfRegisterGravity;
-        remark.errorCode = OutOfRegister;
+        remark.code = OutOfRegister;
 
         addRemark(&remarks, remark);
       }
@@ -111,7 +111,7 @@ static RemarkArray checkTritoneRange(const Voice* voice)
           remark.voice = voice->id;
           remark.note = i + j - 1; // index of the note causing the issue
           remark.gravity = TritoneInPassageGravity;
-          remark.errorCode = TritoneInPassage;
+          remark.code = TritoneInPassage;
 
           addRemark(&remarks, remark);
         }

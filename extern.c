@@ -1,8 +1,8 @@
 #include <stdlib.h>
 
-#include "Notation/Notation.h"
-#include "Analyzer/Analyzer.h"
-#include "Modules/modules.h"
+#include "notation/Notation.h"
+#include "analyzer/Analyzer.h"
+#include "modules/modules.h"
 #include "export.h"
 
 EXPORT Analyzer* CreateAnalyzerWithDummyModule(void)

@@ -5,11 +5,11 @@
 #include "modules/modules.h"
 #include "export.h"
 
-EXPORT Analyzer* CreateAnalyzerWithDummyModule(void)
+EXPORT Analyzer* CreateAnalyzer(void)
 {
     AnalyzerModuleList emptyList = { 0, NULL };
-    Analyzer* analyzer = NewAnalyzer("DummyAnalyzer", emptyList);
-    AddModule(analyzer, DummyModule);
+    Analyzer* analyzer = NewAnalyzer("Analyzer", emptyList);
+    AddModule(analyzer, MelodicModule);
     return analyzer;
 }
 

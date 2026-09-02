@@ -11,7 +11,7 @@ typedef struct {
 typedef struct { Remark* data; size_t size; } RemarkArray;
 
 Remark * newRemark(int voice, int note, float gravity, int errorCode);
-RemarkArray newRemarkArray(size_t size);
+RemarkArray *newRemarkArray();
 void freeRemarkArray(RemarkArray arr);
 void addRemark(RemarkArray* arr, Remark remark);
 void fuseRemarks(RemarkArray* first, RemarkArray* second);
@@ -32,3 +32,9 @@ void fuseRemarks(RemarkArray* first, RemarkArray* second);
 #define JumpCompensationGravity GravityMedium
 #define RepeatedNotesGravity GravityLow
 #define TritoneInPassageGravity GravityHigh
+
+// Remark codes for counterpoint analysis
+#define REMARK_PERFECT_CONSONANCE 100
+#define REMARK_DISSONANCE 101
+#define REMARK_IMPERFECT_CONSONANCE 102
+#define REMARK_FOURTH 103

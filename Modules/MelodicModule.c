@@ -1,7 +1,8 @@
 #include <math.h>
 #include "modules.h"
+#include "../remark/remark.h";
 
-const int MAX_JUMP = 7;
+static int MAX_JUMP = 7;
 
 typedef  RemarkArray(*melodicModuleFunction)(const Voice* voice);
 static melodicModuleFunction melodicChecks[] = {
@@ -10,9 +11,9 @@ static melodicModuleFunction melodicChecks[] = {
   checkTritoneRange
 };
 
-RemarkArray MelodicModule(const MusicPiece* piece)
+RemarkArray *MelodicModule(const MusicPiece* piece)
 {
-    RemarkArray remarks = newRemarkArray(0);
+    RemarkArray *remarks = newRemarkArray();
 
     for (size_t v = 0; v < piece->numVoices; v++) 
     {
@@ -28,9 +29,9 @@ RemarkArray MelodicModule(const MusicPiece* piece)
     return remarks;
 }
 
-static RemarkArray checkJumpCompensation(const Voice* voice) 
+static RemarkArray *checkJumpCompensation(const Voice* voice) 
 {
-    RemarkArray remarks = newRemarkArray(0);
+    RemarkArray *remarks = newRemarkArray();
 
     for (size_t i = 1; i < voice->numNotes - 2; i++) 
     {
@@ -50,7 +51,7 @@ static RemarkArray checkJumpCompensation(const Voice* voice)
           remark.gravity = JumpCompensationGravity;
           remark.code = JumpCompensation;
 
-          addRemark(&remarks, remark);
+          addRemark(remarks, remark);
         }
       }
     }
@@ -58,9 +59,9 @@ static RemarkArray checkJumpCompensation(const Voice* voice)
     return remarks;
 }
 
-static RemarkArray checkOutOfRegister(const Voice* voice) 
+static RemarkArray *checkOutOfRegister(const Voice* voice) 
 {
-    RemarkArray remarks = newRemarkArray(0);
+    RemarkArray *remarks = newRemarkArray();
 
     for (size_t i = 0; i < voice->numNotes; i++) 
     {
@@ -80,9 +81,9 @@ static RemarkArray checkOutOfRegister(const Voice* voice)
     return remarks;
 }
 
-static RemarkArray checkTritoneRange(const Voice* voice) 
+static RemarkArray *checkTritoneRange(const Voice* voice) 
 {
-    RemarkArray remarks = newRemarkArray(0);
+    RemarkArray *remarks = newRemarkArray();
 
     for (size_t i = 0; i < voice->numNotes - 1; i++) 
     {

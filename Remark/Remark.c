@@ -18,15 +18,12 @@ Remark * newRemark(int voice, int note, float gravity, int errorCode)
     return r;
 }
 
-RemarkArray newRemarkArray(size_t size) 
+RemarkArray *newRemarkArray() 
 {
-    RemarkArray arr;
-    arr.size = size;
-    arr.data = (Remark*)malloc(size * sizeof(Remark));
-    if (arr.data == NULL) 
+    RemarkArray *arr = (RemarkArray*)calloc(1, sizeof(RemarkArray));
+    if (arr == NULL) 
     {
         fprintf(stderr, "Failed to allocate memory for remark array\n");
-        arr.size = 0;
     }
     return arr;
 }

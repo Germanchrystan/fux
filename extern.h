@@ -8,7 +8,7 @@
 
 // Library functions
 extern "C" {
-  EXPORT Analyzer* CreateAnalyzerWithDummyModule(void);
+  EXPORT Analyzer* CreateAnalyzer(void);
   EXPORT void FreeRemarkArray(RemarkArray a);
   EXPORT RemarkArray Analyze(const Analyzer* analyzer, const MusicPiece* piece);
 }

@@ -7,11 +7,12 @@ LIBRARY = $(LIB_NAME).$(LIB_EXTENSION)
 SRCS = extern.c \
        Analyzer/Analyzer.c \
        Remark/Remark.c \
-       Modules/DummyModule.c
+	modules/counterpoint/module.c \
+	modules/counterpoint/species/first.c
 
 OBJS = $(SRCS:.c=.o)
 
-all: $(LIBRARYLIBRARY)
+all: $(LIBRARY)
 
 $(LIBNAME): $(OBJS)
 	$(CC) -shared -o $@ $^

@@ -13,4 +13,5 @@ typedef struct Disonance
 
 RemarkArray MelodicModule(const MusicPiece* piece);
 RemarkArray CounterpointModule(const MusicPiece* piece);
+// Flavour module will deal with not repeating notes, chords, intervals
 RemarkArray FlavourModule(const MusicPiece* piece);

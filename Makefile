@@ -3,6 +3,7 @@ CFLAGS = -Wall -Wextra -fPIC -I.
 LIB_EXTENSION = dylib
 LIB_NAME = libcparser
 LIBRARY = $(LIB_NAME).$(LIB_EXTENSION)
+MONOGAME_DIR = $(HOME)/Documents/Monogame/fugue/fugue/lib/cparser/
 
 SRCS = extern.c \
 		analyzer/analyzer.c \
@@ -19,6 +20,9 @@ all: $(LIBRARY)
 
 $(LIBRARY): $(OBJS)
 	$(CC) -shared -o $@ $^
+
+install: $(LIBRARY)
+	cp $(LIBRARY) $(MONOGAME_DIR)/
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

@@ -38,7 +38,7 @@ void freeRemarkArray(RemarkArray arr)
 
 void addRemark(RemarkArray* arr, Remark remark) 
 {
-    if (arr == NULL || arr->data == NULL) 
+    if (arr == NULL) 
     {
         fprintf(stderr, "Invalid remark array\n");
         return;
@@ -57,9 +57,16 @@ void addRemark(RemarkArray* arr, Remark remark)
 
 void fuseRemarks(RemarkArray* firstArr, RemarkArray* secondArr)
 {
-    if (firstArr == NULL || secondArr == NULL || firstArr->data == NULL || secondArr->data == NULL)
+    if (firstArr == NULL ||
+        secondArr == NULL
+    )
     {
         fprintf(stderr, "Invalid remark arrays for fusion\n");
+        return;
+    }
+
+    if (firstArr->size + secondArr->size == firstArr->size)
+    {
         return;
     }
 

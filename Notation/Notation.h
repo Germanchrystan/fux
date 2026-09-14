@@ -1,6 +1,6 @@
 #pragma once
 // #include <stdlib.h>
-#include "../remark/Remark.h"
+#include "../remark/remark.h"
 
 typedef enum IntervalQuality
 {

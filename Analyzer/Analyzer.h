@@ -2,11 +2,11 @@
 
 #include <stdlib.h>
 
-#include "../notation/Notation.h"
-#include "../remark/Remark.h"
+#include "../notation/notation.h"
+#include "../remark/remark.h"
 #include "../export.h"
 
-typedef RemarkArray(*AnalyzerModule)(const MusicPiece* piece);
+typedef RemarkArray *(*AnalyzerModule)(const MusicPiece* piece);
 
 typedef struct {
   size_t numModules;

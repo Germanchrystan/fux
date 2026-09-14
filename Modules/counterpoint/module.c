@@ -1,9 +1,10 @@
+#include <remark/remark.h>
+#include <notation/notation.h>
 #include "module.h"
-#include "modules.h"
 #include <stdbool.h>
 
-void compareVoices(RemarkArray *remarkArray, Voice *voice1, Voice *voice2);
-void compareNotes(RemarkArray *remarkArray, NoteEvent note1, NoteEvent note2);
+static void compareVoices(RemarkArray *remarkArray, Voice *voice1, Voice *voice2);
+static void compareNotes(RemarkArray *remarkArray, NoteEvent note1, NoteEvent note2);
 
 static NoteEvent *prevNoteEvent1 = NULL;
 static NoteEvent *prevNoteEvent2 = NULL;
@@ -24,7 +25,7 @@ RemarkArray CounterpointModule(const MusicPiece* piece)
   return *arr;
 }
 
-void compareVoices(RemarkArray *remarkArray, Voice *voice1, Voice *voice2)
+static void compareVoices(RemarkArray *remarkArray, Voice *voice1, Voice *voice2)
 {
   Voice *voiceMain = voice1;
   int noteMainIndex = 0;

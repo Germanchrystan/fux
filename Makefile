@@ -5,8 +5,11 @@ LIB_NAME = libcparser
 LIBRARY = $(LIB_NAME).$(LIB_EXTENSION)
 
 SRCS = extern.c \
-       Analyzer/Analyzer.c \
-       Remark/Remark.c \
+		analyzer/analyzer.c \
+		modules/melodic_module.c \
+		remark/remark.c \
+		notation/notation.c \
+		utils/utils.c \
 	modules/counterpoint/module.c \
 	modules/counterpoint/species/first.c
 
@@ -14,7 +17,7 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(LIBRARY)
 
-$(LIBNAME): $(OBJS)
+$(LIBRARY): $(OBJS)
 	$(CC) -shared -o $@ $^
 
 %.o: %.c

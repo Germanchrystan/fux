@@ -1,4 +1,6 @@
-#include "module.h"
+#include <remark/remark.h>
+#include <notation/notation.h>
+#include "modules/counterpoint/module.h"
 
 static void dealPerfectConsonance(RemarkArray *remarkArray, NoteEvent note1, NoteEvent note2);
 static void dealDissonance(RemarkArray *remarkArray, NoteEvent note1, NoteEvent note2);

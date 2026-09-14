@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 #include <stdlib.h>
-#include "Remark.h"
+#include "remark.h"
 
 Remark * newRemark(int voice, int note, float gravity, int errorCode) 
 {

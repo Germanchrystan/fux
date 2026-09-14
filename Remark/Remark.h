@@ -1,12 +1,13 @@
 #pragma once
+    
 #include <stdlib.h>
+#include <notation/notation.h>
 
 typedef struct {
     int voice;
     int note;
     float gravity;  // 0-1
     int code;
-
 } Remark;
 typedef struct { Remark* data; size_t size; } RemarkArray;
 

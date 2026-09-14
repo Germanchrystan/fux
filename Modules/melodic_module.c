@@ -1,11 +1,16 @@
 #include <math.h>
 #include "modules.h"
-#include <notation/notation.h>
-#include <remark/remark.h>
+#include "notation/notation.h"
+#include "remark/remark.h"
+#include "utils/utils.h"
+
+static RemarkArray *checkJumpCompensation(const Voice* voice);
+static RemarkArray *checkOutOfRegister(const Voice* voice);
+static RemarkArray *checkTritoneRange(const Voice* voice);
 
 static int MAX_JUMP = 7;
 
-typedef RemarkArray(*melodicModuleFunction)(const Voice* voice);
+typedef RemarkArray *(*melodicModuleFunction)(const Voice* voice);
 static melodicModuleFunction melodicChecks[] = {
   checkOutOfRegister,
   checkJumpCompensation,
@@ -21,9 +26,9 @@ RemarkArray *MelodicModule(const MusicPiece* piece)
       Voice* voice = &piece->voices[v];
       for (size_t i = 0; i < sizeof(melodicChecks)/sizeof(melodicModuleFunction); i++) 
       {
-        RemarkArray checkRemarks = melodicChecks[i](voice);
+        RemarkArray *checkRemarks = melodicChecks[i](voice);
         fuseRemarks(&remarks, &checkRemarks);
-        freeRemarkArray(checkRemarks);
+        freeRemarkArray(*checkRemarks);
       }
     }
 
@@ -75,7 +80,7 @@ static RemarkArray *checkOutOfRegister(const Voice* voice)
         remark.gravity = OutOfRegisterGravity;
         remark.code = OutOfRegister;
 
-        addRemark(&remarks, remark);
+        addRemark(remarks, remark);
       }
     }
 
@@ -115,7 +120,7 @@ static RemarkArray *checkTritoneRange(const Voice* voice)
           remark.gravity = TritoneInPassageGravity;
           remark.code = TritoneInPassage;
 
-          addRemark(&remarks, remark);
+          addRemark(remarks, remark);
         }
         i += j - 1;
       }

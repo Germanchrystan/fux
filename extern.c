@@ -1,7 +1,7 @@
 #include <stdlib.h>
 
-#include "notation/Notation.h"
-#include "analyzer/Analyzer.h"
+#include "notation/notation.h"
+#include "analyzer/analyzer.h"
 #include "modules/modules.h"
 #include "export.h"
 

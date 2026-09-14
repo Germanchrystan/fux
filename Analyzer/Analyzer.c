@@ -2,9 +2,9 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "Analyzer.h"
-#include "../remark/Remark.h"
-#include "../notation/Notation.h"
+#include "analyzer.h"
+#include "remark/remark.h"
+#include "notation/notation.h"
 
 static RemarkArray MergeRemarkArrays(RemarkArray* arrays, size_t numArrays)
 {
@@ -38,14 +38,14 @@ EXPORT RemarkArray AnalyzeMusicPiece(const Analyzer* analyzer, const MusicPiece*
     allRemarks.data = NULL;
     allRemarks.size = 0;
     
-    RemarkArray newRemarks;
+    RemarkArray *newRemarks;
     RemarkArray* tempArray = NULL;
     
     for (size_t i = 0; i < analyzer->modules.numModules; i++) {
         newRemarks = analyzer->modules.modules[i](piece);
         tempArray = (RemarkArray*)malloc(2 * sizeof(RemarkArray));
         tempArray[0] = allRemarks;
-        tempArray[1] = newRemarks;
+        tempArray[1] = *newRemarks;
         allRemarks = MergeRemarkArrays(tempArray, 2);
     }
 

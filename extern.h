@@ -2,9 +2,9 @@
 
 // #include <stddef.h>
 #include "export.h"
-#include "remark/Remark.h"
-#include "notation/Notation.h"
-#include "analyzer/Analyzer.h"
+#include "remark/remark.h"
+#include "notation/notation.h"
+#include "analyzer/analyzer.h"
 
 // Library functions
 extern "C" {

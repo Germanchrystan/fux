@@ -1,4 +1,4 @@
 #pragma once
-#include "../Notation/Notation.h"
+#include "../notation/notation.h"
 
 int sign(int value);

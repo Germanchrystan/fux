@@ -1,4 +1,4 @@
-#include "Notation.h"
+#include "notation.h"
 
 Interval getAbsolutePitchDifference(NoteEvent *note1, NoteEvent *note2)
 {
